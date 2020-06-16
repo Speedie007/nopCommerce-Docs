@@ -81,7 +81,7 @@ namespace Nop.Plugin.Other.ProductViewTracker.Data
         public override void MapEntity(CreateTableExpressionBuilder table)
         {
             //map the primary key (not necessary if it is Id field)
-            table.WithColumn(nameof(ProductViewTrackerRecord.Id)).AsInt32().PrimaryKey()
+            table.WithColumn(nameof(ProductViewTrackerRecord.Id)).AsInt32().PrimaryKey().Identity()
             //map the additional properties as foreign keys
             .WithColumn(nameof(ProductViewTrackerRecord.ProductId)).AsInt32().ForeignKey<Product>(onDelete: Rule.Cascade)
             .WithColumn(nameof(ProductViewTrackerRecord.CustomerId)).AsInt32().ForeignKey<Customer>(onDelete: Rule.Cascade)
